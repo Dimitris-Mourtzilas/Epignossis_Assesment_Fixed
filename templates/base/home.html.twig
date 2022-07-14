@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+{% block body %}
+
+    <table border="1">
+        <thead>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Nick name</th>
+        <th>Role </th>
+        </thead>
+    {% for user in users %}
+    <tbody>
+    <td>
+        {{ user.firstName }}
+    </td>
+    <td>
+        {{ user.lastName }}
+    </td>
+    <td>
+        {{ user.nickName }}
+    </td>
+    <td>
+        {{ user.role }}
+    </td>
+    </tbody>
+    {% endfor %}
+    </table>
+    <a href="{{url('add_user') }}"><input type="button" value="Add user"></a>
+{% endblock %}
